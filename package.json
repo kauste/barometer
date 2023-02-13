@@ -12,5 +12,8 @@
         "postcss": "^8.1.14",
         "pusher-js": "^8.0.1",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "sass": "^1.58.0"
     }
 }
