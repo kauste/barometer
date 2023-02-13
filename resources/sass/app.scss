@@ -1,0 +1,387 @@
+:root {
+    --heading-family: 'Gabriela', serif;
+    --main-family: 'PT Sans', sans-serif;
+}
+@property --percentage {
+    initial-value: 100%;
+    inherits: false;
+    syntax: '<percentage>';
+}
+
+body{
+    background-color: #EBEBEA;
+    display:flex;
+}
+body, body *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    width: 200px;
+    height: 100vh;
+    background-color: #1C685A;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--main-family);
+    .logo-box{
+        padding: 40px 5px;
+        .logo{
+            width: 80px;
+            height: 80px;
+            fill:#fff;
+        }
+    }
+    .controls{
+        display:flex;
+        flex-direction:column;
+        font-size: 20px;
+        font-weight: 600;
+        color: #fff;
+        width: 200px;
+        text-align: center;
+        div{
+            padding: 20px 5px;
+            border-bottom: 2px solid #fff;
+            transition: 0.2s ease-out;
+            &:first-child{
+                border-top:2px solid #fff;
+            }
+            &:hover{
+                background-color: #e1501ba8;
+                cursor: pointer;
+            }
+        }
+        div.active{
+            background: linear-gradient(225deg, #e1501ba8 0%, #E1501B var(--percentage));
+            animation: change-color ease-out 0.5s forwards;
+        }
+    }
+
+}
+main{
+    width: calc(100vw - 200px);
+    color: #292929;
+    position:relative;
+    .message{
+        display:none;
+        position:absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: calc(30px + 1vw);
+        background-color: #E1501B;
+        font-family: var(--headings-family);
+        text-align: center;
+        color:#fff;
+        font-size:15px;
+        line-height: 15px;
+        padding-top: calc((15px + 1vw) / 2);        
+    }
+    h1{
+        width: 100%;
+        text-align: center;
+        font-family: var(--heading-family);
+        padding-top:60px;
+    }
+    .both-cities-box{
+        width: 100%;
+        padding:30px;
+        margin-top: 10px;
+        display:flex;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        transition: ease-in;
+        .one-city{
+            width: 50%;
+            display:flex;
+            flex-direction:column;
+            gap: 10px;
+            align-items: center;
+            h2{
+                font-family: var(--main-family);
+                font-size: 30px;
+                letter-spacing: 2px;
+                padding-bottom:20px;
+                text-transform: capitalize;
+            }
+            .weather-pressure-box{
+                display:flex;
+                gap: 10px;
+                .city-weather{
+                    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .weather-svg{
+                        width: 150px;
+                        height: 120px;
+                    }
+                }
+                .pressure-box{
+                    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .arrow-svg{
+                        width: 50px;
+                        height: 120px;
+                        // transform:rotate(180deg)
+                    }     
+                }
+                .weather-name, .pressure-condition{
+                    font-style:italic;
+                    font-size: 18px;                  
+                }
+                .pressure-else{
+                    width: 10vw;
+                    font-style: italic;
+                    font-size: calc(6px + 0.6vw);
+                    align-self: center;
+                }
+            }
+            .barometer-box{
+                margin-top: 20px;
+                position:relative;
+                width:240px;
+                height:240px;
+                display:flex;
+                
+                .barometer-img{
+                    width: 240px;
+                    height: 240px;
+                    border: black solid 4px;
+                    border-radius: 50%;
+                    transform: rotate(355.5deg);
+                }
+                .barometer-arrow-box{
+                    position:absolute;
+                    height: 160px;
+                    top:40px;
+                    .barometer-arrow{
+                        width: 240px;
+                        height: 80px;
+                        
+                    }
+                }
+            }
+        }
+    }
+    .no-data{
+        padding: 12vh 0;
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+        gap: 5vh;
+        font-family: var(--main-family);
+    }
+    
+}
+footer{
+    position: absolute;
+    width: calc(100% - 200px);
+    height: 80px;
+    bottom: 0px;
+    left: 200px;
+    background-color: black;
+    text-align:center;
+    color:#fff;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    a{
+        color:#fff;
+        transition: 0.2s ease-in;
+        &:hover{
+            color:#E1501B;
+        }
+    }
+    .github-ico-box{
+        display:flex;
+        align-items: center;
+        gap: 5px;
+        .github-ico{
+            fill:#fff;
+            background-color: transparent;
+            width: 60px;
+            height:60px;
+            transition: 0.2s ease-in;
+            &:hover{
+                fill:#E1501B;
+            }
+        }
+    }
+}
+@media(max-width: 960px){
+    body{
+        flex-direction:column;
+        nav{
+            width: 100%;
+            height: 70px;
+            flex-direction:row;
+            justify-content: space-between;
+            .logo-box{
+                height: 100%;
+                padding:10px 20px;
+                .logo{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            .controls{
+                flex-direction:row;
+                height: 100%;
+                width: 50%;
+                div{
+                    border:none;
+                    width: 200px;
+                    height: 100%;
+                    padding-top:25px;
+                    &:first-child{
+                        border-top:none;
+                    }
+                    // border-right: 2px white solid;
+                }
+            }
+
+        }
+        main{
+            width: 100%;
+            .both-cities-box{
+                margin-top:0;
+                padding-top: 10px;
+            }
+        }
+        footer{
+            width: 100%;
+            left:0;
+            height: 60px;
+            .github-ico-box {
+                .github-ico{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 776px){
+    body{
+        nav{
+            height: 60px;
+            .logo-box{
+                padding: 10px 5px;
+                .logo{
+                    width:40px;
+                    height:40px;
+                }
+            }
+            .controls{
+                font-size: 15px;
+                width: 70%;
+                div{
+                    padding-top: 22.5px;
+                }
+            }
+        }
+        main{
+            padding-top: calc(5vw + 10px);
+            h1{
+                font-size: calc(3vw + 10px);
+            }
+            .both-cities-box{
+                .one-city{
+                    h2{
+                        font-size: calc(2vw + 8px);
+                    }
+                    .weather-pressure-box{
+                        .city-weather{
+                            .weather-svg{
+                                width: calc(7.5vw + 50px);
+                                height: calc(6vw + 40px);
+                            }
+                        }
+                        .pressure-box{
+                            .arrow-svg{
+                                width: 30px;
+                                height: calc(6vw + 40px);
+                            }     
+                        }
+                        .weather-name, .pressure-condition{
+                            font-style:italic;
+                            font-size: calc(1vw + 8px);                 
+                        }
+                    }
+                    .barometer-box{
+                        margin-top: 20px;
+                        position:relative;
+                        width:200px;
+                        height:200px;
+                        display:flex;
+                        
+                        .barometer-img{
+                            width: 200px;
+                            height: 200px;
+                            border: black solid 4px;
+                            border-radius: 50%;
+                            transform: rotate(355.5deg);
+                        }
+                        .barometer-arrow-box{
+                            position:absolute;
+                            height: 120px;
+                            top:40px;
+                            .barometer-arrow{
+                                width: 200px;
+                                height: 60px;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 496px){
+    body{
+        main{
+            .both-cities-box{
+                flex-direction: column;
+                .one-city{
+                    .weather-pressure-box{
+                        .city-weather{
+                            gap: 5px;
+                            .weather-svg{
+                                width: 100px;
+                                height: 80px;
+                            }
+                        }
+                        .pressure-box{
+                            .arrow-svg{
+                                height:80px;
+                            }
+                        }
+                        .pressure-else{
+                            width: 80px;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+        footer{
+            position:relative;
+            height: 150px;
+            padding-bottom: 10px;
+            flex-direction: column-reverse;
+            justify-content: space-around;
+            align-items:start;
+        };
+    }
+}
+@keyframes change-color {
+    100%{
+        --percentage: 0%;
+    }
+}
